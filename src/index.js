@@ -23,7 +23,8 @@ class App extends React.Component {
         console.log('component just updated');
         
     }
-    render() {        
+
+    renderBody() {
         if(this.state.errorMessage && !this.state.lat) {
             return <div>Error: {this.state.errorMessage}</div>
         }
@@ -33,6 +34,13 @@ class App extends React.Component {
         }
 
         return <Spinner message="Please accept the location"/>;
+    }
+    render() {        
+        return( 
+            <div className="border red">
+                {this.renderBody()}
+            </div>
+        );
     }
 }
 ReactDOM.render(
